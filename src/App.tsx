@@ -1,7 +1,3 @@
-import inst from './assets/inst.svg'
-import search from './assets/search.svg'
-import cart from './assets/cart.svg'
-import logo from './assets/logo.svg'
 import firstDisplay from './assets/first-display/first-display.png'
 import firstItem from './assets/cart/first-item.png'
 import secondItem from './assets/cart/second-item.png'
@@ -13,35 +9,15 @@ import footerInst from './assets/footer/inst.svg'
 import footerFacebook from './assets/footer/facebook.svg'
 import footerTwitter from './assets/footer/Twitter.svg'
 import footerLogo from './assets/footer/thalby.svg'
+
 import './App.css'
+import FormSubscribe from './components/FormSubscribe/FormSubscribe'
+import Header from './components/Header/Header'
 
 function App() {
   return (
     <>
-      <header className="container">
-        <div>
-          <div className="header-menu">
-            <p>
-              <a href="#">Shop</a>
-            </p>
-            <p>
-              <a href="#">Collections</a>
-            </p>
-            <p>
-              <a href="#">Try a Free Guide</a>
-            </p>
-            <p>
-              <a href="#">Stories</a>
-            </p>
-          </div>
-          <img src={logo} alt="#" />
-          <div className="header-contact">
-            <img src={inst} alt="" />
-            <img src={search} alt="" />
-            <img src={cart} alt="" />
-          </div>
-        </div>
-      </header>
+      <Header />
       <main>
         <section className="section-first-display">
           <div className="container">
@@ -249,14 +225,7 @@ function App() {
                 Get our travel advice, global views and travel freebies in your
                 inbox
               </p>
-              <form className="form-subscribe" action="">
-                <div>
-                  <input type="text" placeholder="First Name" />
-                  <input type="text" placeholder="Last Name" />
-                </div>
-                <input type="text" placeholder="Email" />
-                <input type="submit" value="Subscribe" />
-              </form>
+              <FormSubscribe />
             </div>
           </div>
         </section>

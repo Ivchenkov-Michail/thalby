@@ -1,0 +1,9 @@
+.burger {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(204, 204, 204);
+  position: absolute;
+  left: 0;
+  top: 56px;
+  z-index: 10;
+}
