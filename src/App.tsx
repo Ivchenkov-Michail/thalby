@@ -14,8 +14,21 @@ import footerFacebook from './assets/footer/facebook.svg'
 import footerTwitter from './assets/footer/Twitter.svg'
 import footerLogo from './assets/footer/thalby.svg'
 import './App.css'
+import { RefObject, useRef, useState } from 'react'
+import CustomInput from './components/СustomInput/FormInputText'
 
 function App() {
+  const i = 1
+  const refFirstNameInput =
+    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
+  const refLastNameInput =
+    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
+  const refEmailInput =
+    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
+  const [firstName, setFirstName] = useState<string>('')
+  const [lastName, setLastName] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+
   return (
     <>
       <header className="container">
@@ -251,10 +264,28 @@ function App() {
               </p>
               <form className="form-subscribe" action="">
                 <div>
-                  <input type="text" placeholder="First Name" />
-                  <input type="text" placeholder="Last Name" />
+                  <CustomInput
+                    inputRef={refFirstNameInput}
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={setFirstName}
+                    // style={{ width: '300px' }}
+                  />
+                  <CustomInput
+                    inputRef={refLastNameInput}
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={setLastName}
+                    // style={{ width: '300px' }}
+                  />
                 </div>
-                <input type="text" placeholder="Email" />
+                <CustomInput
+                  inputRef={refLastNameInput}
+                  placeholder="Email"
+                  value={email}
+                  onChange={setEmail}
+                  // style={{ width: '100%' }}
+                />
                 <input type="submit" value="Subscribe" />
               </form>
             </div>

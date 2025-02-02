@@ -438,12 +438,12 @@ header > div {
   justify-content: space-between;
 }
 
-.form-subscribe input[type='text'] {
+.form-subscribe > div > div input[type='text'] {
   width: 153px;
   height: 39px;
   border: 1px solid #000;
 }
-.form-subscribe > input[type='text'] {
+.form-subscribe > div > input[type='text'] {
   margin-top: 20px;
   width: 100%;
 }
