@@ -1,42 +1,59 @@
-import React, { RefObject, useRef, useState } from 'react'
 import CustomInput from '../СustomInput/FormInputText'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+interface FormValues {
+  firstName: string
+  lastName: string
+  email: string
+}
 
 const FormSubscribe = () => {
-  const refFirstNameInput =
-    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
-  const refLastNameInput =
-    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
-  const refEmailInput =
-    useRef<HTMLInputElement>() as RefObject<HTMLInputElement>
-  const [firstName, setFirstName] = useState<string>('')
-  const [lastName, setLastName] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
+  })
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log('Form Submitted', data)
+    reset()
+  }
 
   return (
-    <form className="form-subscribe" action="">
+    <form
+      className="form-subscribe"
+      action=""
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div>
         <CustomInput
-          inputRef={refFirstNameInput}
           placeholder="First Name"
-          value={firstName}
-          onChange={setFirstName}
-          // style={{ width: '300px' }}
+          {...register('firstName', { required: 'First name is required' })}
         />
         <CustomInput
-          inputRef={refLastNameInput}
+          {...register('lastName', { required: 'Last name is required' })}
           placeholder="Last Name"
-          value={lastName}
-          onChange={setLastName}
-          // style={{ width: '300px' }}
         />
       </div>
+
       <CustomInput
-        inputRef={refLastNameInput}
+        {...register('email', {
+          required: 'Email is required',
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: 'Invalid email address',
+          },
+        })}
         placeholder="Email"
-        value={email}
-        onChange={setEmail}
-        // style={{ width: '100%' }}
       />
+      {errors.email && <p>{errors.email.message}</p>}
       <input type="submit" value="Subscribe" />
     </form>
   )
