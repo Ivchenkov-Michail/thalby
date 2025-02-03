@@ -1,11 +1,11 @@
 // import React, { ChangeEvent, FC, forwardRef, useImperativeHandle } from "react";
 
-import { ChangeEvent, forwardRef, useImperativeHandle } from 'react'
+import { forwardRef } from 'react'
 import styles from './Custom.module.css'
 
 interface CustomInputProps {
-  value: string
-  onChange: (value: string) => void
+  // value: string
+  // onChange: (value: string) => void
   placeholder?: string
   label?: string
   disabled?: boolean
@@ -19,42 +19,29 @@ export interface CustomInputRef {
   clear: () => void
 }
 
-const CustomInput = forwardRef<CustomInputRef, CustomInputProps>(
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   (
     {
-      value,
-      onChange,
       placeholder = '',
       label,
       disabled = false,
       className = '',
       inputRef,
       style = {},
+      ...rest
     },
     ref
   ) => {
-    useImperativeHandle(ref, () => ({
-      focus: () => inputRef?.current?.focus(),
-      clear: () => {
-        if (inputRef?.current) inputRef.current.value = ''
-      },
-    }))
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      onChange(event.target.value)
-    }
-
     return (
       <div className={`${styles.inputContainer} ${className}`} style={style}>
         {label && <label className={styles.label}>{label}</label>}
         <input
-          ref={inputRef}
+          ref={ref}
           type="text"
-          value={value}
-          onChange={handleChange}
           placeholder={placeholder}
           disabled={disabled}
           className={styles.input}
+          {...rest}
         />
       </div>
     )
