@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useScreenSize from '../../hooks/useScreenSize'
 
 import inst from '../../assets/inst.svg'

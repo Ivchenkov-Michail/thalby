@@ -4,14 +4,11 @@ import { forwardRef } from 'react'
 import styles from './Custom.module.css'
 
 interface CustomInputProps {
-  // value: string
-  // onChange: (value: string) => void
   placeholder?: string
   label?: string
   disabled?: boolean
   className?: string
-  inputRef?: React.RefObject<HTMLInputElement>
-  style?: any
+  style?: React.CSSProperties
 }
 
 export interface CustomInputRef {
@@ -26,7 +23,6 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       label,
       disabled = false,
       className = '',
-      inputRef,
       style = {},
       ...rest
     },
