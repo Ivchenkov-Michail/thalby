@@ -210,7 +210,7 @@ header > div {
   background-color: #000;
   color: #fff;
 }
-.data-first-display > div {
+.data-first-display > div:last-child {
   overflow: hidden;
 }
 .data-first-display > div > img {
@@ -641,6 +641,11 @@ footer {
   .cart > div > div {
     margin-bottom: 50px;
   }
+  .section-uneven-description .data-description > div:last-child,
+  .section-even-description .data-description > div > img {
+    margin-left: 0;
+  }
+
   .data-description,
   .section-even-description .data-description {
     flex-direction: column;
