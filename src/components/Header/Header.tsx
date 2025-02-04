@@ -13,7 +13,7 @@ const headerMenuList = ['Shop', 'Collections', 'Try a Free Guide', 'Stories']
 const Header = () => {
   const screenSize = useScreenSize()
   const [active, setActive] = useState(true)
-  if (screenSize.width >= 768 && !active) {
+  if (screenSize.width >= 1080 && !active) {
     setActive(true)
   }
   if (!active) {
@@ -22,19 +22,23 @@ const Header = () => {
     document.body.style.overflow = 'scroll'
   }
   return (
-    <header className="container" style={{ position: 'relative' }}>
-      <div>
-        {screenSize.width >= 768
-          ? headerMenuList.map((item) => (
+    <header>
+      <div className="container">
+        {screenSize.width >= 1080 ? (
+          <div className="header-menu">
+            {headerMenuList.map((item) => (
               <p key={item}>
                 <a>{item}</a>
               </p>
-            ))
-          : ''}
+            ))}
+          </div>
+        ) : (
+          ''
+        )}
 
         <img src={logo} alt="#" />
 
-        {screenSize.width >= 768 ? (
+        {screenSize.width >= 1080 ? (
           <>
             <div className="header-contact">
               <img src={inst} alt="" />

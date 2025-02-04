@@ -72,7 +72,9 @@ function App() {
         <section className="section-uneven-description">
           <div className="container">
             <div className="data-description">
-              <img src={secondItem} alt="#" />
+              <div>
+                <img src={secondItem} alt="#" />
+              </div>
               <div>
                 <h2>People and Society</h2>
                 <p>
@@ -90,7 +92,9 @@ function App() {
         <section className="section-even-description">
           <div className="container">
             <div className="data-description">
-              <img src={firstItem} alt="#" />
+              <div>
+                <img src={firstItem} alt="#" />
+              </div>
               <div>
                 <h2>Culture and Heritage</h2>
                 <p>
@@ -108,7 +112,9 @@ function App() {
         <section className="section-uneven-description">
           <div className="container">
             <div className="data-description">
-              <img src={thirdItem} alt="#" />
+              <div>
+                <img src={thirdItem} alt="#" />
+              </div>
               <div>
                 <h2>Power and Politics</h2>
                 <p>
