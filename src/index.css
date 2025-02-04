@@ -13,6 +13,9 @@
     -moz-osx-font-smoothing: grayscale; */
 }
 
+/* body {
+  scrollbar-gutter: initial;
+} */
 * {
   padding: 0px;
   margin: 0px;
@@ -206,6 +209,9 @@ header > div {
   border-radius: 20px;
   background-color: #000;
   color: #fff;
+}
+.data-first-display > div {
+  overflow: hidden;
 }
 .data-first-display > div > img {
   transform: translateX(100px);
@@ -539,10 +545,9 @@ footer {
     margin-top: 42px;
     width: 334px;
     font-size: 20px;
-    /* text-align: left; */
   }
   .data-first-display > div > img {
-    transform: translateX(50px);
+    transform: translateX(80px);
   }
   .cart > h2 {
     margin-top: 40px;
@@ -555,21 +560,28 @@ footer {
   .cart > div > div:not(:first-child) {
     margin-left: 10px;
   }
-  .data-description > div:last-child,
-  .data-description > img {
+  .section-uneven-description .data-description > div:last-child,
+  .section-even-description .data-description > div > img {
     margin-left: 20px;
   }
-  .data-description > img {
+  .data-description > div:first-child {
+    min-width: 200px;
+    /* min-height: auto; */
+  }
+  .data-description > div > img {
     width: auto;
     height: auto;
   }
   .data-description > div > h2 {
     width: auto;
-    font-size: 30px;
+    font-size: 20px;
   }
   .data-description > div > p {
     width: auto;
-    font-size: 30px;
+    font-size: 20px;
+  }
+  .data-description > div > p > a {
+    font-size: 14px;
   }
   .section-adventages {
     padding-top: 90px;
@@ -636,6 +648,10 @@ footer {
     text-align: center;
   }
   .data-description > div:first-child {
+    max-width: 200px;
+    max-height: 350px;
+  }
+  .data-description > div:first-child > img {
     max-width: 200px;
     max-height: 350px;
   }
