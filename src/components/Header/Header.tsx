@@ -22,8 +22,8 @@ const Header = () => {
     document.body.style.overflow = 'scroll'
   }
   return (
-    <header className="container" style={{ position: 'relative' }}>
-      <div>
+    <header>
+      <div className="container">
         {screenSize.width >= 768
           ? headerMenuList.map((item) => (
               <p key={item}>
