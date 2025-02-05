@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import useScreenSize from '../../hooks/useScreenSize'
-
 import inst from '../../assets/inst.svg'
 import search from '../../assets/search.svg'
 import cart from '../../assets/cart.svg'
@@ -8,6 +7,7 @@ import logo from '../../assets/logo.svg'
 import menuImg from '../../assets/menu.png'
 import closeImg from '../../assets/close.png'
 import styles from './Header.module.css'
+import classNames from 'classnames'
 const headerMenuList = ['Shop', 'Collections', 'Try a Free Guide', 'Stories']
 
 const Header = () => {
@@ -60,22 +60,20 @@ const Header = () => {
                 </>
               )}
             </div>
-            {!active && (
-              <div className={styles.burger}>
-                <ul className="container">
-                  {headerMenuList.map((item) => (
-                    <li key={item}>
-                      <a>{item}</a>
-                    </li>
-                  ))}
-                </ul>
-                <ul className="container">
-                  <img src={inst} alt="" />
-                  <img src={search} alt="" />
-                  <img src={cart} alt="" />
-                </ul>
-              </div>
-            )}
+            <div className={classNames(styles.burger, active && styles.none)}>
+              <ul className="container">
+                {headerMenuList.map((item) => (
+                  <li key={item}>
+                    <a>{item}</a>
+                  </li>
+                ))}
+              </ul>
+              <ul className="container">
+                <img src={inst} alt="" />
+                <img src={search} alt="" />
+                <img src={cart} alt="" />
+              </ul>
+            </div>
           </>
         )}
       </div>
