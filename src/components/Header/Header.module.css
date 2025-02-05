@@ -1,9 +1,36 @@
 .burger {
+  animation-direction: reverse;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(204, 204, 204);
+  background-color: #fff;
   position: absolute;
   left: 0;
   top: 56px;
-  z-index: 10;
+  transition: transform 1s ease-in-out;
+}
+
+.none {
+  transform: translateY(100vh);
+}
+
+.burger > ul:first-child > li:hover {
+  color: blue;
+  transition: color 0.5s ease-in-out;
+}
+
+.burger > ul:first-child > li:first-child {
+  margin-top: 40px;
+}
+
+.burger > ul:first-child > li:not(:first-child) {
+  margin-top: 20px;
+}
+
+.burger > ul:last-child {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+.burger > ul:last-child > img:not(:first-child) {
+  margin-left: 30px;
 }
