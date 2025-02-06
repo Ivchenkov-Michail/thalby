@@ -6,11 +6,21 @@
   position: absolute;
   left: 0;
   top: 56px;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .none {
-  transform: translateY(100vh);
+  transform: translateY(120%);
+}
+.burger li,
+.burger img {
+  opacity: 0;
+}
+.burger li {
+  animation: animationMenuContain 1.5s forwards 1.3s;
+}
+.burger img {
+  animation: animationMenuContain 1.5s forwards 1.5s;
 }
 
 .burger > ul:first-child > li:hover {
@@ -33,4 +43,18 @@
 }
 .burger > ul:last-child > img:not(:first-child) {
   margin-left: 30px;
+}
+
+@keyframes animationMenuContain {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -8,7 +8,13 @@ import menuImg from '../../assets/menu.png'
 import closeImg from '../../assets/close.png'
 import styles from './Header.module.css'
 import classNames from 'classnames'
-const headerMenuList = ['Shop', 'Collections', 'Try a Free Guide', 'Stories']
+import { NavLink } from 'react-router'
+const headerMenuList = [
+  { name: 'Shop', route: '/shop' },
+  { name: 'Collections', route: '/collections' },
+  { name: 'Try a Free Guide', route: '/guide' },
+  { name: 'Stories', route: '/stories' },
+]
 
 const Header = () => {
   const screenSize = useScreenSize()
@@ -27,8 +33,8 @@ const Header = () => {
         {screenSize.width >= 1080 ? (
           <div className="header-menu">
             {headerMenuList.map((item) => (
-              <p key={item}>
-                <a>{item}</a>
+              <p key={item.name}>
+                <NavLink to={item.route}>{item.name}</NavLink>
               </p>
             ))}
           </div>
@@ -36,7 +42,9 @@ const Header = () => {
           ''
         )}
 
-        <img src={logo} alt="#" />
+        <NavLink to="/">
+          <img src={logo} alt="#" />
+        </NavLink>
 
         {screenSize.width >= 1080 ? (
           <>
@@ -63,8 +71,10 @@ const Header = () => {
             <div className={classNames(styles.burger, active && styles.none)}>
               <ul className="container">
                 {headerMenuList.map((item) => (
-                  <li key={item}>
-                    <a>{item}</a>
+                  <li key={item.name}>
+                    <NavLink onClick={() => setActive(!active)} to={item.route}>
+                      {item.name}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
