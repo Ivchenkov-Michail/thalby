@@ -30,7 +30,9 @@
 }
 
 /* Links */
-
+a {
+  color: #000;
+}
 a,
 a:link,
 a:visited {
