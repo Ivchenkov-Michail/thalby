@@ -6,9 +6,9 @@ import cart from '../../assets/cart.svg'
 import logo from '../../assets/logo.svg'
 import menuImg from '../../assets/menu.png'
 import closeImg from '../../assets/close.png'
-import styles from './Header.module.css'
-import classNames from 'classnames'
 import { NavLink } from 'react-router'
+import Menu from './Menu/Menu'
+
 const headerMenuList = [
   { name: 'Shop', route: '/shop' },
   { name: 'Collections', route: '/collections' },
@@ -18,11 +18,18 @@ const headerMenuList = [
 
 const Header = () => {
   const screenSize = useScreenSize()
-  const [active, setActive] = useState(true)
-  if (screenSize.width >= 1080 && !active) {
+  const [active, setActive] = useState(false)
+  const [isFirstLoading, setIsFirstLoading] = useState(false)
+
+  const handleClick = (data: boolean) => {
+    if (!isFirstLoading && !active) setIsFirstLoading(!isFirstLoading)
+    setActive(data)
+  }
+
+  if (screenSize.width >= 1080 && active) {
     setActive(true)
   }
-  if (!active) {
+  if (active) {
     document.body.style.overflow = 'hidden'
   } else {
     document.body.style.overflow = 'scroll'
@@ -57,10 +64,10 @@ const Header = () => {
         ) : (
           <>
             <div
-              onClick={() => setActive(!active)}
+              onClick={() => handleClick(!active)}
               style={{ width: '20px', height: '20px' }}
             >
-              {active ? (
+              {!active ? (
                 <img src={menuImg} alt="#" />
               ) : (
                 <>
@@ -68,22 +75,12 @@ const Header = () => {
                 </>
               )}
             </div>
-            <div className={classNames(styles.burger, active && styles.none)}>
-              <ul className="container">
-                {headerMenuList.map((item) => (
-                  <li key={item.name}>
-                    <NavLink onClick={() => setActive(!active)} to={item.route}>
-                      {item.name}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-              <ul className="container">
-                <img src={inst} alt="" />
-                <img src={search} alt="" />
-                <img src={cart} alt="" />
-              </ul>
-            </div>
+            <Menu
+              list={headerMenuList}
+              active={active}
+              handleClick={handleClick}
+              isFirstLoading={isFirstLoading}
+            />
           </>
         )}
       </div>
