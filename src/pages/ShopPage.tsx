@@ -1,9 +1,14 @@
-const AboutPage = () => {
+import NoDataLoyaut from '../components/NoDataLoyaut/NoDataLoyaut'
+
+const ShopPage = () => {
   return (
-    <div className="container" style={{ marginTop: '60px' }}>
-      AboutPage
+    <div>
+      <NoDataLoyaut>
+        К сожалению дизайнер не сверстал страницу "Shop", поэтому здесь побудет
+        грустный смайлик
+      </NoDataLoyaut>
     </div>
   )
 }
 
-export default AboutPage
+export default ShopPage

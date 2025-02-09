@@ -8,6 +8,7 @@ import menuImg from '../../assets/menu.png'
 import closeImg from '../../assets/close.png'
 import { NavLink } from 'react-router'
 import Menu from './Menu/Menu'
+import { useScrollDirection } from '../../hooks/useScrollDirection'
 
 const headerMenuList = [
   { name: 'Shop', route: '/shop' },
@@ -20,6 +21,7 @@ const Header = () => {
   const screenSize = useScreenSize()
   const [active, setActive] = useState(false)
   const [isFirstLoading, setIsFirstLoading] = useState(false)
+  const direction = useScrollDirection()
 
   const handleClick = (data: boolean) => {
     if (!isFirstLoading && !active) setIsFirstLoading(!isFirstLoading)
@@ -35,7 +37,12 @@ const Header = () => {
     document.body.style.overflow = 'scroll'
   }
   return (
-    <header>
+    <header
+      style={{
+        transition: 'transform 0.2s ease-in',
+        transform: `translateY(${direction || active ? '0px' : '-56px'})`,
+      }}
+    >
       <div className="container">
         {screenSize.width >= 1080 ? (
           <div className="header-menu">
@@ -49,7 +56,7 @@ const Header = () => {
           ''
         )}
 
-        <NavLink to="/">
+        <NavLink to="/" onClick={() => setActive(false)}>
           <img src={logo} alt="#" />
         </NavLink>
 
@@ -65,7 +72,7 @@ const Header = () => {
           <>
             <div
               onClick={() => handleClick(!active)}
-              style={{ width: '20px', height: '20px' }}
+              style={{ width: '20px', height: '20px', cursor: 'pointer' }}
             >
               {!active ? (
                 <img src={menuImg} alt="#" />

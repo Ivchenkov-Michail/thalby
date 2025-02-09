@@ -6,6 +6,8 @@ import StoriesPage from './pages/StoriesPage'
 import CollectionsPage from './pages/CollectionsPage'
 import GuidePage from './pages/GuidePage'
 import Footer from './components/Footer/Footer'
+import FormSubscribe from './components/FormSubscribe/FormSubscribe'
+import NotPage from './pages/NotPage'
 
 const loyaut = () => {
   return (
@@ -17,16 +19,9 @@ const loyaut = () => {
         <Route path="/collections" element={<CollectionsPage />} />
         <Route path="/guide" element={<GuidePage />} />
         <Route path="/stories" element={<StoriesPage />} />
-        <Route
-          path="/*"
-          element={
-            <div className="container" style={{ marginTop: '60px' }}>
-              <p>Not page lol!</p>
-              <Link to="/"> Вернуться на главную</Link>
-            </div>
-          }
-        />
+        <Route path="/*" element={<NotPage />} />
       </Routes>
+      <FormSubscribe />
       <Footer />
     </>
   )

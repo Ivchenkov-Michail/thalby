@@ -380,6 +380,7 @@ header > div {
   padding-top: 102px;
   /* padding-bottom: 40px; */
   position: relative;
+  overflow: hidden;
 }
 .background::before {
   content: '';
@@ -416,6 +417,11 @@ header > div {
   font-size: 22px;
   font-weight: bold;
   margin-top: 35px;
+
+  -webkit-line-clamp: 3; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden; /* Обрезаем всё за пределами блока */
 }
 .name {
   font-size: 20px;
@@ -551,11 +557,18 @@ footer {
   .data-first-display > div > img {
     transform: translateX(80px);
   }
-  .cart > h2 {
+  .cart > h2:nth-child(4) {
     margin-top: 40px;
     font-size: 30px;
   }
+  .cart > div {
+    margin-top: 30px;
+  }
+  .cart > div > div {
+    margin-bottom: 100px;
+  }
   .cart > div > div > img {
+    max-width: 200px;
     width: auto;
     height: auto;
   }
@@ -596,6 +609,7 @@ footer {
     width: auto;
     padding: 0 30px;
   }
+
   .title {
     font-size: 20px;
   }
@@ -606,10 +620,11 @@ footer {
   }
   .name {
     font-size: 18px;
+    margin-top: 20px;
   }
   .discover {
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .form > h2 {
     font-size: 30px;
@@ -683,7 +698,10 @@ footer {
   .section-discovery {
     background-color: #ccc;
     padding-top: 60px;
-    margin-top: 104px;
+    margin-top: 90px;
+  }
+  .background {
+    padding-top: 15px;
   }
   .background::before {
     display: none;
@@ -717,6 +735,9 @@ footer {
   .footer {
     flex-direction: column;
   }
+  .footer > div > div:not(:first-child) {
+    margin-top: 0;
+  }
   .footer > div:first-child {
     display: flex;
     justify-content: space-between;
@@ -731,10 +752,10 @@ footer {
     margin-left: 10px;
   }
 }
-footer {
+/* footer {
   height: 100vh;
-}
+} */
 
 .active {
-  color: red;
+  color: blue;
 }

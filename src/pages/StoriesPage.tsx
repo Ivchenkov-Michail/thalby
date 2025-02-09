@@ -1,7 +1,12 @@
+import NoDataLoyaut from '../components/NoDataLoyaut/NoDataLoyaut'
+
 const StoriesPage = () => {
   return (
-    <div className="container" style={{ marginTop: '60px' }}>
-      StoriesPage
+    <div>
+      <NoDataLoyaut>
+        К сожалению дизайнер не сверстал страницу "Stories", поэтому здесь
+        побудет грустный смайлик
+      </NoDataLoyaut>
     </div>
   )
 }

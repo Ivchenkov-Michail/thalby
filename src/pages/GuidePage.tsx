@@ -1,7 +1,12 @@
+import NoDataLoyaut from '../components/NoDataLoyaut/NoDataLoyaut'
+
 const GuidePage = () => {
   return (
-    <div className="container" style={{ marginTop: '60px' }}>
-      GuidePage
+    <div>
+      <NoDataLoyaut>
+        К сожалению дизайнер не сверстал страницу "Try a Free Guide", поэтому
+        здесь побудет грустный смайлик
+      </NoDataLoyaut>
     </div>
   )
 }

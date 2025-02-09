@@ -6,8 +6,6 @@ import firstDisc from '../assets/discover/first.png'
 import secondDisc from '../assets/discover/second.png'
 import thirdDisc from '../assets/discover/third.png'
 
-import FormSubscribe from '../components/FormSubscribe/FormSubscribe'
-
 const Home = () => {
   return (
     <>
@@ -214,18 +212,6 @@ const Home = () => {
                   <div className="discover">Discover</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        <section className="section-form">
-          <div className="container">
-            <div className="form">
-              <h2>Keep in touch</h2>
-              <p>
-                Get our travel advice, global views and travel freebies in your
-                inbox
-              </p>
-              <FormSubscribe />
             </div>
           </div>
         </section>
