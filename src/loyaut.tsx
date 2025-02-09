@@ -1,5 +1,5 @@
 import Header from './components/Header/Header'
-import { Link, Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router'
 import Home from './pages/Home'
 import ShopPage from './pages/ShopPage'
 import StoriesPage from './pages/StoriesPage'
