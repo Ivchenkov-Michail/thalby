@@ -1,0 +1,76 @@
+.burger {
+  animation-direction: reverse;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 56px;
+  transition: transform 0.5s ease-in-out;
+  li,
+  img {
+    opacity: 0;
+  }
+  > ul {
+    &:first-child {
+      > li {
+        a {
+          &:hover {
+            color: blue;
+            transition: color 0.5s ease-in-out;
+          }
+        }
+        &:first-child {
+          margin-top: 40px;
+        }
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
+    }
+    &:last-child {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      > img:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+.none {
+  transform: translateY(120%);
+}
+
+.active {
+  li {
+    animation: animationMenuContain 0.5s forwards 0.3s;
+  }
+}
+.active {
+  img {
+    animation: animationMenuContain 0.5s forwards 0.6s;
+  }
+}
+
+@media (max-height: 340px) {
+  .burger {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+@keyframes animationMenuContain {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

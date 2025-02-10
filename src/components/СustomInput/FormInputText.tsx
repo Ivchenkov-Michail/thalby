@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react'
 import styles from './Custom.module.css'
+import classNames from 'classnames'
 
 interface CustomInputProps {
   placeholder?: string
@@ -29,7 +30,10 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     ref
   ) => {
     return (
-      <div className={`${styles.inputContainer} ${className}`} style={style}>
+      <div
+        className={classNames(styles.inputContainer, className)}
+        style={style}
+      >
         {label && <label className={styles.label}>{label}</label>}
         <input
           ref={ref}

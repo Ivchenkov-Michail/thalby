@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router'
-import styles from './Menu.module.css'
+import styles from './Menu.module.scss'
 import inst from '../../../assets/inst.svg'
 import search from '../../../assets/search.svg'
 import cart from '../../../assets/cart.svg'

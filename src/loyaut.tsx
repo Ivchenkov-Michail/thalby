@@ -14,6 +14,7 @@ const loyaut = () => {
     <>
       <Header />
       <Routes>
+        {/* <ScrollToTop /> */}
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/collections" element={<CollectionsPage />} />
