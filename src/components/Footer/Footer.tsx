@@ -2,13 +2,14 @@ import footerInst from '../../assets/footer/inst.svg'
 import footerFacebook from '../../assets/footer/facebook.svg'
 import footerTwitter from '../../assets/footer/Twitter.svg'
 import footerLogo from '../../assets/footer/thalby.svg'
+import styles from './Footer.module.scss'
 
 import { NavLink } from 'react-router'
 const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <div className="footer">
+        <div className={styles.footer}>
           <div>
             <NavLink to="/">
               <img src={footerLogo} alt="#" />
@@ -48,7 +49,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="licence">Thalby LLC © 2021</p>
+        <p className={styles.licence}>Thalby LLC © 2021</p>
       </div>
     </footer>
   )

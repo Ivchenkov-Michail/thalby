@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
 import sad from '../../assets/sad.png'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 import classNames from 'classnames'
 interface IProps {
   children: string

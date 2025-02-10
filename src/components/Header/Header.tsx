@@ -9,6 +9,7 @@ import closeImg from '../../assets/close.png'
 import { NavLink } from 'react-router'
 import Menu from './Menu/Menu'
 import { useScrollDirection } from '../../hooks/useScrollDirection'
+import styles from './Header.module.scss'
 
 const headerMenuList = [
   { name: 'Shop', route: '/shop' },
@@ -45,7 +46,7 @@ const Header = () => {
     >
       <div className="container">
         {screenSize.width >= 1080 ? (
-          <div className="header-menu">
+          <div className={styles['header-menu']}>
             {headerMenuList.map((item) => (
               <p key={item.name}>
                 <NavLink to={item.route}>{item.name}</NavLink>
@@ -62,7 +63,7 @@ const Header = () => {
 
         {screenSize.width >= 1080 ? (
           <>
-            <div className="header-contact">
+            <div className={styles['header-contact']}>
               <img src={inst} alt="" />
               <img src={search} alt="" />
               <img src={cart} alt="" />
