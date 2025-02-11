@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useScreenSize from '../../hooks/useScreenSize'
 import inst from '../../assets/inst.svg'
 import search from '../../assets/search.svg'
@@ -32,11 +32,15 @@ const Header = () => {
   if (screenSize.width >= 1080 && active) {
     setActive(true)
   }
-  if (active) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = 'scroll'
-  }
+
+  useEffect(() => {
+    if (active) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+    return () => document.body.classList.remove('no-scroll') // Очистка при размонтировании
+  }, [active])
   return (
     <header
       style={{

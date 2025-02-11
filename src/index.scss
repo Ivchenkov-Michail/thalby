@@ -349,3 +349,7 @@ legend {
 .active {
   color: blue;
 }
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}

@@ -30,7 +30,7 @@ const Home = () => {
         </section>
         <Cart />
         {descList.map((item) => (
-          <Description {...item} />
+          <Description key={item.title} {...item} />
         ))}
         <section className="section-adventages">
           <div className="container">
