@@ -61,7 +61,11 @@ const Header = () => {
           ''
         )}
 
-        <NavLink to="/" onClick={() => setActive(false)}>
+        <NavLink
+          to="/"
+          onClick={() => setActive(false)}
+          data-testid="LinkToHome"
+        >
           <img src={logo} alt="#" />
         </NavLink>
 

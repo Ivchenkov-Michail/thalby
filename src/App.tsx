@@ -1,9 +1,8 @@
 import './App.css'
-
-import Loyaut from './loyaut'
+import AppRoutes from './route/AppRoutes'
 
 function App() {
-  return <Loyaut />
+  return <AppRoutes />
 }
 
 export default App

@@ -19,6 +19,7 @@ const ModalWindow = ({ setIsOpen, isOpen }: IModalProps) => {
 
   return (
     <div
+      data-testid={'Modal'}
       className={classNames(
         isOpen ? styles.visible : styles.none,
         !firstLoad && styles.firstNone
